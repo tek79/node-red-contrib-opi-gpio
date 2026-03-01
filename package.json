@@ -7,7 +7,7 @@
   },
   "license": "ISC", 
   "dependencies": {
-    "onoff": "*"
+    "onoff": "github:tek79/onoff"
   },
   "keywords": [
     "node-red",
