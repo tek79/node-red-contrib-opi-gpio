@@ -187,6 +187,11 @@
          </select>
          
     </div>
+    <div class="form-row" id="node-set-low">
+        <label>&nbsp;</label>
+        <input type="checkbox" id="node-input-enableLow" style="display: inline-block; width: auto; vertical-align: top;">
+        <label for="node-input-enableLow" style="width: 70%;">Enable Active low?</label>
+    </div>
     <div class="form-row" id="node-set-tick">
         <label>&nbsp;</label>
         <input type="checkbox" id="node-input-enableInterrupt" style="display: inline-block; width: auto; vertical-align: top;">
@@ -235,7 +240,8 @@
             edge:{value:""},
             debounce:{value:""},
             select: {value:"PC"},
-            pin: {value:""}
+            pin: {value:""},
+            enableLow: {value: ""}
         },
         icon: "in.png",
         paletteLabel:"input pin",

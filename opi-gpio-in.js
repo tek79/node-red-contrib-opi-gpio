@@ -8,12 +8,15 @@ module.exports = function(RED) {
     var monitoringPin;
     node.pin=config.pin;
     node.enableInterrupt=config.enableInterrupt;
+    node.enableLow=config.enableLow;
     var options ={
-      debounceTimeout: config.debounce || 0
+      debounceTimeout: config.debounce || 0,
+      activeLow: config.enableLow || false
     }
 
     function init() {
       try {
+        if(node.enableLow === true ) options.activeLow = true;
         monitoringPin = new Gpio(node.pin, 'in', config.edge, options);
       }
       catch (e) {
@@ -41,7 +44,7 @@ module.exports = function(RED) {
     if(node.pin !== ''){
       init();
     }
-    
+
     this.on('input', function(msg){
         var reading = monitoringPin.readSync();
         node.send({ topic:"GPIO "+node.pin, payload:Number(reading), interrupt: false });

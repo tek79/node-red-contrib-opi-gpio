@@ -10,11 +10,17 @@ module.exports = function(RED) {
       node.log("Pin: "+node.pin);
       node.set = config.set;
       node.level = config.level;
+      node.enableLow = config.enableLow;
       var outpin;
-      
+      var options ={
+        activeLow: config.enableLow || false
+      }
+
     // init:
     if(node.pin !== ''){
-      outpin = new Gpio(node.pin, 'out');
+      node.log("OUT activeLOW:"+node.enableLow);
+      if(node.enableLow === true ) options.activeLow = true;
+      outpin = new Gpio(node.pin, 'out', '', options);
       outpin.unwatch();
     }
 
