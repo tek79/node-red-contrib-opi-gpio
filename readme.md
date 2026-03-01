@@ -46,8 +46,12 @@ If you have a new set of gpio pins tested at another Pi, feel free to send me a 
 g.prand(at)gmail.com
 
 # Release history
+0.0.7
+Added support for Active Low pin mode.
+Thank you, Stanislav Y.
+
 0.0.6
-Changed to the latest onoff library. Now works with Node.js 12/14.
+Update dependencies
 
 0.0.5
 Added Orange Pi Zero Plus 2 (h5).
